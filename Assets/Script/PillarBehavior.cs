@@ -10,6 +10,7 @@ public class PillarBehavior : MonoBehaviour
     [SerializeField]
     PlayerBehavior playerBehavior;
     DestroyMe destroyMe;
+    bool isPassed = false;
     
     private void Start()
     {
@@ -19,6 +20,11 @@ public class PillarBehavior : MonoBehaviour
 
     private void Update()
     {
+        if (!isPassed && gameObject.transform.position.x < 0)
+        {
+            isPassed = true;
+            playerBehavior.AddScore();
+        }
         if (!playerBehavior.gameOver)
             transform.position += Vector3.left * speed * Time.deltaTime;
     }

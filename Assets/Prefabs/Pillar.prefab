@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1534437539145956381}
   - component: {fileID: 3913322882305407650}
   - component: {fileID: 5578734088647727612}
-  - component: {fileID: 8966627109192649753}
-  - component: {fileID: 4185217861731165656}
   m_Layer: 0
   m_Name: Pillar
   m_TagString: Untagged
@@ -139,30 +137,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8966627109192649753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7063572395879767299}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f559199a606343548bfad403e6930796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PillarBehavior
-  speed: 3
-  playerBehavior: {fileID: 0}
---- !u!114 &4185217861731165656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7063572395879767299}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4847d066b72b3ed4d891f7858c5eedb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyMe
-  LifeTime: 5

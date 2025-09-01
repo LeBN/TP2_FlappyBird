@@ -24,7 +24,7 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Start()
     {
-        rb2D.gravityScale = 1f;
+        rb2D.gravityScale = 0f;
     }
 
     private void Update()
@@ -35,8 +35,10 @@ public class PlayerBehavior : MonoBehaviour
             {
                 rb2D.gravityScale = 1f;
                 isGameStarted = true;
+                animator.SetTrigger("Start");
             }
-            jumpPressed = true;
+            else
+                jumpPressed = true;
         }
     }
 
@@ -55,6 +57,11 @@ public class PlayerBehavior : MonoBehaviour
     {
         gameOver = true;
         rb2D.simulated = false;
+        if (score > PlayerPrefs.GetInt("BestScore", 0))
+        {
+            PlayerPrefs.SetInt("BestScore", score);
+            PlayerPrefs.Save();
+        }
     }
 
     public void RestartGame()

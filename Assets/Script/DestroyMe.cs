@@ -12,7 +12,7 @@ public class DestroyMe : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.scene.IsValid() && gameObject.transform.position.x < -10f)
+        if (gameObject.scene.IsValid() && (gameObject.transform.position.x < -10f))
         {
             Destroy(gameObject);
         }

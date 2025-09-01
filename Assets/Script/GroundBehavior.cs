@@ -4,7 +4,7 @@ using UnityEngine;
 public class GroundBehavior : MonoBehaviour
 {
     [SerializeField]
-    public float speed = .2f;
+    public float speed = 8.1f;
 
     float CanvasSize;
     float UvScale;
@@ -29,7 +29,7 @@ public class GroundBehavior : MonoBehaviour
     {
         if (!playerBehavior.gameOver)
         {
-            offset += speed * Time.deltaTime * (UvScale/CanvasSize);
+            offset += (speed * Time.deltaTime * (UvScale/CanvasSize))%1;
             rend.material.mainTextureOffset = new Vector2(offset, 0);
         }
     }
