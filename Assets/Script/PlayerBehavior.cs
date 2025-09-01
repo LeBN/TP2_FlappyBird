@@ -12,6 +12,15 @@ public class PlayerBehavior : MonoBehaviour
     private float force = 10f;
     [SerializeField] 
     private TextMeshProUGUI scoreLabel;
+    [SerializeField] 
+    private AudioSource playerAudioSource;
+    [SerializeField]
+    private AudioClip jumpAudioClip;
+    [SerializeField]
+    private AudioClip collisionAudioClip;
+    [SerializeField]
+    private AudioClip scoreAudioClip;
+
 
     private bool jumpPressed = false;
 
@@ -23,6 +32,7 @@ public class PlayerBehavior : MonoBehaviour
     public void AddScore()
     {
         score++;
+        playerAudioSource.PlayOneShot(scoreAudioClip);
         scoreLabel.text = score.ToString();
     }
 
@@ -54,11 +64,14 @@ public class PlayerBehavior : MonoBehaviour
             rb2D.AddForce(Vector2.up * force);
             jumpPressed = false;
             animator.SetTrigger("Jump");
+            playerAudioSource.Play();
+            playerAudioSource.PlayOneShot(jumpAudioClip);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        playerAudioSource.PlayOneShot(collisionAudioClip);
         gameOver = true;
         rb2D.simulated = false;
         if (score > PlayerPrefs.GetInt("BestScore", 0))
