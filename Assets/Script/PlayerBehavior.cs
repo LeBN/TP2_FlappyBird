@@ -1,5 +1,6 @@
-using UnityEngine.InputSystem;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerBehavior : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerBehavior : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private float force = 10f;
+    [SerializeField] 
+    private TextMeshProUGUI scoreLabel;
 
     private bool jumpPressed = false;
 
@@ -20,6 +23,7 @@ public class PlayerBehavior : MonoBehaviour
     public void AddScore()
     {
         score++;
+        scoreLabel.text = score.ToString();
     }
 
     private void Start()

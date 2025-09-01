@@ -13,13 +13,10 @@ public class SpawnBehavior : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("SpawnBehavior.Start - Scene=" + gameObject.scene.name);
     }
 
     private void Update()
     {
-        if (Time.frameCount < 5) // juste au début
-            Debug.Log("Frame " + Time.frameCount + " - SpawnBehavior actif");
         if (playerBehavior.gameOver || !playerBehavior.isGameStarted)
         {
             checkTime = Time.time;
@@ -37,6 +34,7 @@ public class SpawnBehavior : MonoBehaviour
             pillar2.AddComponent<DestroyMe>().LifeTime = 5f;
             pillar2.AddComponent<PillarBehavior>();
             pillar2.tag = "Clone";
+            pillar2.GetComponent<PillarBehavior>().isPassed = true;
             checkTime += rate;
         }
     }

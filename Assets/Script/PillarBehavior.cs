@@ -10,7 +10,7 @@ public class PillarBehavior : MonoBehaviour
     [SerializeField]
     PlayerBehavior playerBehavior;
     DestroyMe destroyMe;
-    bool isPassed = false;
+    public bool isPassed = false;
     
     private void Start()
     {
